@@ -1,0 +1,25 @@
+@use 'util' as *;
+
+:root {
+    --bodycolor: rgb(240, 248, 255);
+    --textcolor: rgb(255, 255, 255);
+    --bgcolor: rgb(255, 255, 255);
+
+    --wrapper: rgb(0, 139, 139);
+    --darkcolor: rgb(0, 0, 0);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bodycolor);
+  
+}
+
+main {
+    @include gridplacenter;
+    @include widthheight;
+}
+a {
+    text-decoration: none;
+    color: var(--textcolor);
+}

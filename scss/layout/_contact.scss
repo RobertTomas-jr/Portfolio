@@ -1,0 +1,157 @@
+@use '../util/mixin' as *;
+
+
+.contact {
+    @include gridplacenter;
+    @include widthheight;
+    padding: 3em 1em;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,1)), url('/images/Screenshot_20220425_060002.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .contact-wrapper {
+        width: 100%;
+        height: 100%;
+        @include flexcenter;
+        flex-wrap: wrap;
+
+        .contact-call-us {
+            background-color: var(--bgcolor);
+            width: 100%;
+            padding: 1em 0;
+            position: relative;
+            box-shadow: 1px 1px 8px 0 rgba($color: #000000, $alpha: 0.3);
+
+            .title-head {
+                @include titleHead;
+                padding-top: 1.6em;
+                text-align: center;
+                padding: 2em 2em 0.4em;
+                color: darkcyan;
+
+                span {
+                    opacity: 0.05;
+                    color: #000000;
+                    font-size: 3rem;
+                }
+    
+            } 
+            .contact-info {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                padding: 0.8em 2em;
+
+                .image-icon {
+                    width: 30px;
+                    height: 30px;
+                    
+                    img {
+                        @include widthheight;
+                        filter: invert(0);
+                     }
+                }
+                p {
+                    color: var(--darkcolor);
+                }
+            }
+            .map {
+                width: 100%;
+                height: 100%;
+                margin: 2em auto;
+
+                .map-container {
+                    width: 100%;
+                    height: 40vh;
+
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .contact-form {
+            width: 100%;
+            background-color: var(--wrapper);
+            padding: 1.2em 0.4em;
+           
+            h3 {
+                @include subHead;
+                color: var(--textcolor);
+                margin-bottom: 2em;
+                padding-left: 0.8em;
+            }
+            form {
+                width: 100%;
+
+                .form-info {
+                   position: relative;
+                   padding: 0 1em;
+                   margin-bottom: 2em;
+                   
+                    input, textarea {
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        height: 2em;
+                        border-bottom: 1px solid black;
+                        background-color: transparent;
+                        padding-left: 1em;
+                        color: var(--textcolor);
+                         resize: none;
+
+                        &:focus~label, &:valid~label {
+                            top: -25px;
+                        }
+
+                        &:focus {
+                            box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.6);
+                        }
+                    } 
+                    textarea {
+                        height: 100px;
+                    } 
+
+                    label {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        cursor: text;
+                        transition: 0.5s;
+                        color: var(--textcolor);
+                        font-size: 0.9rem;
+                        opacity: 0.6;
+                        padding-left: 1em;
+
+                        i {
+                            color: var(--bgcolor);
+                        } 
+                    }
+                }
+                button[type="submit"]{
+                    color: var(--darkcolor);
+                    padding: 0.6em 1em;
+                    display: inline-block;
+                    background: transparent;
+                    border: 1px solid black;
+                    outline: none;
+                    margin: 0 1em 1em;
+                    font-size: 0.9rem;
+                    position: relative;
+                    transition: 0.5s linear;
+                  
+                    &:hover {
+                        background-color: aliceblue;
+                        border: 1px solid aliceblue;
+                    }
+                }
+            }
+        }
+    }
+}
+

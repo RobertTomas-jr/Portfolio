@@ -1,0 +1,104 @@
+@use '../util/mixin' as *;
+
+.works {
+    @include gridplacenter;
+    @include widthheight;
+    margin-top: 5em;
+
+    .works-container {
+        text-align: center;
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 1.4em;
+        .title-head {
+            @include titleHead;
+            padding-top: 1.6em;
+            text-align: center;
+            padding: 2em 2em 0.4em;
+           
+          
+
+           //background-color: aqua;
+          
+           color: darkcyan;
+            span {
+                opacity: 0.05;
+                color: #000000;
+                font-size: 3rem;
+            }
+
+        }
+        h3 {
+            @include subHead;
+        }
+
+        .menu-works {
+            background-color: darkcyan;
+            margin-top: 1em;
+
+            .btn {
+                display: inline-block;
+                width: 130px;
+                background-color: palevioletred;
+                transition: 0.5s linear;
+
+                &:hover {
+                    background-color: darkcyan;
+                }
+            }
+            
+        }
+        
+
+        .image-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            gap: 0.6em;
+            background-color: aliceblue;
+           // padding: 2em 0;
+            
+            .image-content {
+                //flex: 0 0 420px;
+                flex: 100%;
+               // height: 250px;
+                margin: auto;
+               // width: 300px;
+                overflow: hidden;
+                position: relative;
+               
+                &:hover img{
+                    transform: scale(1.09);
+
+                }
+                &:hover .overlay {
+                  transform: translate(0);
+                //   left: 50%;
+                //   transform: translate(-50%, -50%);
+                }
+
+                .overlay {
+                    transition: transform 0.5s ease-in-out;
+                    position: absolute;
+                   // bottom: 0;
+                   
+                    top: 50%;
+                    background-color: #000000;
+                    padding: 1em 0;
+                   // transform: translate(-50%, -50%);
+                   }
+
+                img {
+                   @include widthheight;
+                    object-fit: fill;
+                    object-position: center;
+                    transition: transform 0.5s ease-out;    
+                }
+            }
+        }
+    }
+}

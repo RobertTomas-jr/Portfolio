@@ -1,0 +1,23 @@
+@use './breakpoints' as *;
+
+@include tablet {
+  .nav-menu {
+     width: 100%;
+    
+     .nav-link {
+        display: inline;
+        transform: translateX(0);
+
+     }
+  } 
+   .hamburger {
+       display: none;
+   } 
+
+   .services-container {
+
+      .service-tools {
+         width: 25%;
+      }
+   }
+}

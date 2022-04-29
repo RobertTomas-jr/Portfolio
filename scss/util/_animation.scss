@@ -1,0 +1,75 @@
+//design skills animation about.scss
+
+@keyframes photoshop {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 40%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes canva {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 50%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes figma {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 30%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+//coding skills animation about.scss
+@keyframes html {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 70%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes javascript {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 20%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes sass {
+    0% {
+        width: 0%;
+        transform: scaleX(0);
+        opacity: 0.5;
+    }
+    100% {
+        width: 50%;
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}

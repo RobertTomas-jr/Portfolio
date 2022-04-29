@@ -1,0 +1,36 @@
+@use '../util/mixin' as *;
+
+
+.footer {
+    @include gridplacenter;
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    background-color: var(--darkcolor);
+    padding: 1em 0 2em;
+
+    .copyright-footer {
+        @include widthheight;
+        width: 90%;
+        margin: auto;
+
+        p {
+            color: var(--textcolor);
+            @include textContent;
+            text-align: center;
+        }
+    }
+    .icons {
+        display: flex;
+        gap: 1em;
+        
+        .fa {
+            cursor: pointer;
+            font-size: 1.4rem;
+            filter: invert(1);
+            &:hover {
+                color: var(--wrapper);
+            }
+        }
+    }
+}

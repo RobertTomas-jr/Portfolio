@@ -1,0 +1,197 @@
+
+@use '../util/mixin' as *;
+//@use '../configuration/animation';
+
+
+.about {
+    width: 100%;
+    height: 100%;
+    padding-top: 12vh;
+    padding-bottom: 2em;
+    @include gridplacenter;
+    //background-color: #231F20;
+    background-image: linear-gradient(150deg, rgba(0,0,0,0), rgba(0,0,0,1)), url('/images/backgroun-image.jpg');
+   // opacity: 0.3;
+   
+   .about-me {
+        width: 100%;
+        height: 100%;
+        padding: 2em 1em 4em 1em;
+        @include flexcenter;
+        flex-wrap: wrap;
+        //background-color: #231F20;
+        gap: 2em;
+        overflow: hidden;
+       
+       
+        .about-me-content {
+            text-align: center;
+            color: white;
+            width: 25em;
+
+            .title-head {
+                // @extend %titleHead;
+                @include titleHead;
+               // text-align: start;
+               span {
+                   color: darkcyan;
+               }
+            }   
+            .sub-head {
+                //@extend %subHead;
+                @include subHead;
+                padding-bottom: 1em;
+                //padding-top: 0.6em;
+                
+            }
+            .content {
+                @include textContent;
+               
+            } 
+
+            .style-box {
+                border: 10px solid white;
+                width: 300px;
+                height: auto;
+                border-radius: 25px;
+                margin: auto;
+                
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: right center;
+                    position: relative;
+                    left: 2em;
+                    top: 2em;
+                    //border: 1px solid darkcyan;
+                    border-radius: 10px;
+                    //transform: rotateY(180deg);
+               }   }
+        }
+   }
+   .about-skills {
+    width: 100%;
+    height: 100%;
+    // @include flexspacebetween;
+    // flex-direction: column;
+    color: white;
+    padding-bottom: 5em;
+   // background-color: #231F20;
+    
+    
+    .title-head {
+        //@extend %titleHead;
+        @include titleHead;
+        padding-top: 1em;
+        text-align: center;
+    }
+    
+    .skills {
+        @include flexcenter;
+        flex-wrap: wrap;
+        gap: 2em;
+       
+
+        .skillset {
+            width: 400px;
+           // height: 100%;
+            position: relative;
+            
+           
+            //background-color: aqua;
+    
+            .sub-head {
+               // @extend %subHead;
+                @include subHead;
+                text-align: center;
+                padding-top: 1.4em;
+                padding-bottom: 0.4em;
+    
+                &::before,&::after {
+                    position: absolute;
+                    content: "";
+                   
+                }
+                &::before {
+                    width: 100px;
+                    height: 3px;
+                    background-color: wheat;
+                    left: 50%;
+                    top: 20%;
+                    transform:  translate(-50%, -50%);
+                }
+                &::after {
+                    width: 60px;
+                    height: 3px;
+                    background-color: wheat;
+                    left: 50%;
+                    top: 22%;
+                    transform:  translate(-50%, -50%);
+                }
+            }
+            h3 {
+                font-size: clamp(0.75rem, 1.5vw + 0.7rem, 1.3rem);
+                padding-top: 0.2em;
+                padding-bottom: 0.1em;
+                font-weight: 400;
+                font-variant: small-caps;
+            }
+            .progress-bar {
+                background-color: #ada8a9;
+                height: 16px;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid darkcyan;
+    
+                .bar-percentage {
+                    font-size: 0.7rem;
+                    padding-left: 0.4em;
+                    padding-right: 0.4em;
+                    text-align: end;
+                }
+            }
+            .html, .css, .javascript, .sass,
+            .photoshop, .illustrator, .canva, .figma {
+                background-color: #080808;
+                height: 15px;
+                border-radius: 10px;
+                transform-origin: left;
+            }
+            //designing skills, coding skills
+            .skill-tools {
+                width: 100%;
+                padding: 0.8em 1em;
+    
+                    .photoshop, .illustrator {
+                        width: 40%;
+                        animation: photoshop 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                    .canva {
+                        width: 50%;
+                        animation: canva 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                    .figma {
+                        width: 30%;
+                        animation: figma 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                    .html, .css {
+                        width: 70%;
+                        animation: html 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                    .javascript {
+                        width: 20%;
+                        animation: javascript 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                    .sass {
+                        width: 50%;
+                        animation: sass 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+            }
+        }
+    }
+    
+
+    }      
+}
