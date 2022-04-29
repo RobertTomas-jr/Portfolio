@@ -1,4 +1,6 @@
-@use '../util/mixin' as *;
+@use '../util/' as *;
+@use '../globals/' as *;
+
 
 .banner {
     @include flexcenter;

@@ -1,7 +1,6 @@
-//@use '../configuration/reset' as *;
-@use '../util/mixin' as *;
-//@use '../util/breakpoints' as *;
-@use '../util/responsive' as *;
+@use '../util/' as *;
+@use '../globals/' as *;
+
 
 
 header {
