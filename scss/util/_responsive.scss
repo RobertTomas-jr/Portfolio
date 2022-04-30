@@ -1,47 +1,13 @@
-@use './reset' as *;
-@use './breakpoints' as *;
+@use 'reset' as *;
+@use 'breakpoints' as *;
 
-@include tablet {
-  .nav-menu {
-     width: 100%;
-     transform: translateX(0);
-     .nav-link {
-        display: inline;
-       
-
-     }
-  } 
-   .hamburger {
-       display: none;
-   } 
-
-   .services-container {
-      width: 90%;
-      margin: 0 2em;
-      
-      .service-tools {
-         flex: 35%;
-         padding: 0 1em;
-
-
-         .image {
-            width: 20%;
-           
-            margin: auto;
-
-            img {
-               width: 100%;
-               height: 100%;
-               
-            }
-         }
-      }
-   }
-   .contact-wrapper {
+@include breakpoints(medium) {
+   .nav-menu {
+      transform: translateX(0);
       width: 100%;
-      .contact-call-us {
-         //flex: 400px;
-         width: 50%;
-      }
+
+   }
+   .hamburger {
+      display: none;
    }
 }
