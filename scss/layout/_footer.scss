@@ -1,14 +1,11 @@
 @use '../util/' as *;
 @use '../globals/' as *;
 
-
-
 .footer {
     @include gridplacenter;
-    position: relative;
     width: 100%;
     height: 20vh;
-    background-color: var(--darkcolor);
+    background-color: $darkcolor;
     padding: 1em 0 2em;
 
     .copyright-footer {
@@ -17,21 +14,24 @@
         margin: auto;
 
         p {
-            color: var(--textcolor);
+            color: $textcolor;
             @include textContent;
             text-align: center;
+            max-width: 380px;
+            margin: auto;
         }
     }
     .icons {
         display: flex;
         gap: 1em;
+        margin-top: 1em;
         
         .fa {
             cursor: pointer;
             font-size: 1.4rem;
             filter: invert(1);
             &:hover {
-                color: var(--wrapper);
+                color: $wrapper;
             }
         }
     }

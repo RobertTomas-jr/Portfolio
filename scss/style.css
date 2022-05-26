@@ -12,7 +12,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Montserrat", sans-serif;
 }
 
 @-webkit-keyframes photoshop {
@@ -160,90 +160,132 @@ body {
     opacity: 1;
   }
 }
-@media (min-width: ) {
-  .nav-menu {
-    transform: translateX(0);
-    width: 100%;
+@-webkit-keyframes git {
+  0% {
+    width: 0%;
+    transform: scaleX(0);
+    opacity: 0.5;
   }
-
-  .hamburger {
-    display: none;
+  100% {
+    width: 50%;
+    transform: scaleX(1);
+    opacity: 1;
   }
 }
-:root {
-  --bodycolor: rgb(240, 248, 255);
-  --textcolor: rgb(255, 255, 255);
-  --bgcolor: rgb(255, 255, 255);
-  --wrapper: rgb(0, 139, 139);
-  --darkcolor: rgb(0, 0, 0);
+@keyframes git {
+  0% {
+    width: 0%;
+    transform: scaleX(0);
+    opacity: 0.5;
+  }
+  100% {
+    width: 50%;
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
+/* @use 'reset' as *;
+@use 'breakpoints' as *;
 
 header {
-  display: grid;
-  place-items: center;
+
+      .nav-menu {
+
+         @include breakpoints(medium){
+            transform: translateX(0);
+            width: 100%;
+         }
+
+         .nav-link {
+            display: inline;
+         }
+      }
+      .hamburger, .hamburger-btn::after, .hamburger-btn::before {
+
+         @include breakpoints(medium){
+            display: none;
+         }
+      }
+
+}
+ */
+header {
   width: 100%;
   height: 5em;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
-  background-color: var(--wrapper);
+  background-color: rgb(0, 139, 139);
 }
 header .header-container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  height: 100%;
-  position: relative;
-  background-color: aquamarine;
-  margin: auto;
 }
 header .header-container .logo {
-  max-width: 90px;
-  max-height: 5em;
-  background-color: aqua;
+  width: 90px;
+  height: 5em;
+  padding-left: 1.5em;
 }
 header .header-container .logo img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 header .header-container .nav-menu {
-  width: 100%;
-  background-color: darkgoldenrod;
+  padding-right: 2em;
+  transform: translateX(120%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  transition: transform 0.1s linear;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  transform: translateX(150%);
+  justify-content: flex-end;
+  gap: 1em;
 }
 header .header-container .nav-menu .nav-link {
-  color: white;
-  font-size: 1rem;
-  padding: 1em;
-  height: 100%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  display: block;
+  padding: 1em 0;
 }
 header .header-container .nav-menu .nav-link:hover {
-  background-color: cadetblue;
+  color: #6677bc;
+}
+header .header-container .nav-menu.open {
+  transform: translateX(0);
+  background-color: #1e1e1e;
+  width: 50%;
+  display: block;
+  padding-top: 80px;
+  font-size: 1.25rem;
 }
 header .header-container .hamburger {
-  background-color: aqua;
-  position: relative;
-  width: 3em;
-  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1em;
+  right: 1.8em;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  right: 0;
+  z-index: 5;
 }
 header .header-container .hamburger .hamburger-btn {
   width: 2em;
   height: 4px;
-  background-color: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
+  transition: all 300ms ease-in-out;
 }
 header .header-container .hamburger .hamburger-btn::after, header .header-container .hamburger .hamburger-btn::before {
   content: "";
@@ -253,20 +295,49 @@ header .header-container .hamburger .hamburger-btn::before {
   transform: translateY(-9px);
   width: 2em;
   height: 4px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
+  transition: all 300ms ease-in-out;
 }
 header .header-container .hamburger .hamburger-btn::after {
   transform: translateY(9px);
   width: 2em;
   height: 4px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
+  transition: all 300ms ease-in-out;
+}
+header .header-container .hamburger.open .hamburger-btn::before {
+  transform: rotate(45deg);
+  background-color: rgb(255, 255, 255);
+}
+header .header-container .hamburger.open .hamburger-btn::after {
+  transform: rotate(-45deg);
+  background-color: rgb(255, 255, 255);
+}
+header .header-container .hamburger.open .hamburger-btn {
+  background: transparent;
 }
 
+@media (min-width: 48em) {
+  header .header-container .nav-menu {
+    height: 100%;
+    transform: translateX(0);
+  }
+  header .header-container .nav-menu .nav-link {
+    display: inline;
+  }
+  header .header-container .nav-menu .nav-link:hover {
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(240, 248, 255);
+  }
+  header .header-container .hamburger {
+    display: none;
+  }
+}
 .banner {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -296,36 +367,37 @@ header .header-container .hamburger .hamburger-btn::after {
   order: 2;
   flex: 2;
   transform: rotateY(180deg);
-  padding-left: 2em;
+  padding-left: 4em;
   padding-top: 10em;
 }
 .banner .banner-content h3 {
   font-size: clamp(0.75rem, 1.5vw + 0.5rem, 1.2rem);
   font-weight: 400;
-  line-height: 1.5;
   padding-left: 0.2em;
 }
 .banner .banner-content h1 {
   font-size: clamp(1rem, 3vw + 1.5rem, 8rem);
   font-weight: 800;
   font-variant: small-caps;
-  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .banner .banner-content h2 {
   font-size: clamp(1rem, 1.75vw + 0.6rem, 2rem);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 0.2;
   margin-bottom: 2.5em;
   padding-left: 0.1em;
   font-variant: small-caps;
+  color: rgb(0, 139, 139);
 }
 .banner .banner-content .cta {
-  border: 1px solid black;
-  padding: 0.2em 0.6em;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 0.2em 1em;
   text-decoration: none;
   color: brown;
   opacity: 0.7;
-  margin-left: 0.2em;
+  margin-left: 0;
 }
 .banner .banner-content .cta:hover {
   color: brown;
@@ -341,7 +413,7 @@ header .header-container .hamburger .hamburger-btn::after {
   cursor: pointer;
 }
 .banner .banner-content .icons .fa:hover {
-  color: var(--wrapper);
+  color: rgb(0, 139, 139);
 }
 
 .about {
@@ -351,7 +423,10 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-bottom: 2em;
   display: grid;
   place-items: center;
-  background-image: linear-gradient(150deg, rgba(0, 0, 0, 0), rgb(0, 0, 0)), url("/images/backgroun-image.jpg");
+  background-image: url("/images/backgroun-image.jpg");
+  background-image: linear-gradient(150deg, rgba(7, 7, 7, 0.3), rgba(7, 7, 7, 0.6)), url("/images/backgroun-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .about .about-me {
   width: 100%;
@@ -366,7 +441,7 @@ header .header-container .hamburger .hamburger-btn::after {
 }
 .about .about-me .about-me-content {
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   width: 25em;
 }
 .about .about-me .about-me-content .title-head {
@@ -377,7 +452,7 @@ header .header-container .hamburger .hamburger-btn::after {
   opacity: 0.8;
 }
 .about .about-me .about-me-content .title-head span {
-  color: darkcyan;
+  color: rgb(0, 139, 139);
 }
 .about .about-me .about-me-content .sub-head {
   font-size: clamp(0.75rem, 1.5vw + 0.7rem, 1.3rem);
@@ -385,18 +460,18 @@ header .header-container .hamburger .hamburger-btn::after {
   font-weight: 500;
   opacity: 0.9;
   font-variant: small-caps;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
   padding-bottom: 1em;
 }
 .about .about-me .about-me-content .content {
-  padding: 0.3em 1em;
+  padding: 0.3em 0.5em;
   font-size: clamp(0.75rem, 1.5vw + 0.5rem, 1.1rem);
   font-weight: 300;
   opacity: 0.8;
   line-height: 1.3;
 }
 .about .about-me .about-me-content .style-box {
-  border: 10px solid white;
+  border: 10px solid rgb(255, 255, 255);
   width: 300px;
   height: auto;
   border-radius: 25px;
@@ -417,7 +492,7 @@ header .header-container .hamburger .hamburger-btn::after {
 .about .about-skills {
   width: 100%;
   height: 100%;
-  color: white;
+  color: rgb(255, 255, 255);
   padding-bottom: 5em;
 }
 .about .about-skills .title-head {
@@ -432,7 +507,6 @@ header .header-container .hamburger .hamburger-btn::after {
 .about .about-skills .skills {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   gap: 2em;
 }
@@ -446,7 +520,7 @@ header .header-container .hamburger .hamburger-btn::after {
   font-weight: 500;
   opacity: 0.9;
   font-variant: small-caps;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
   text-align: center;
   padding-top: 1.4em;
   padding-bottom: 0.4em;
@@ -483,7 +557,7 @@ header .header-container .hamburger .hamburger-btn::after {
   height: 16px;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid darkcyan;
+  border: 1px solid rgb(0, 139, 139);
 }
 .about .about-skills .skills .skillset .progress-bar .bar-percentage {
   font-size: 0.7rem;
@@ -491,7 +565,7 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-right: 0.4em;
   text-align: end;
 }
-.about .about-skills .skills .skillset .html, .about .about-skills .skills .skillset .css, .about .about-skills .skills .skillset .javascript, .about .about-skills .skills .skillset .sass,
+.about .about-skills .skills .skillset .html, .about .about-skills .skills .skillset .css, .about .about-skills .skills .skillset .javascript, .about .about-skills .skills .skillset .sass, .about .about-skills .skills .skillset .git-github,
 .about .about-skills .skills .skillset .photoshop, .about .about-skills .skills .skillset .illustrator, .about .about-skills .skills .skillset .canva, .about .about-skills .skills .skillset .figma {
   background-color: #080808;
   height: 15px;
@@ -532,6 +606,11 @@ header .header-container .hamburger .hamburger-btn::after {
   -webkit-animation: sass 1s cubic-bezier(1, 0.5, 0.8, 1);
           animation: sass 1s cubic-bezier(1, 0.5, 0.8, 1);
 }
+.about .about-skills .skills .skillset .skill-tools .git-github {
+  width: 50%;
+  -webkit-animation: git 1s cubic-bezier(1, 0.5, 0.8, 1);
+          animation: git 1s cubic-bezier(1, 0.5, 0.8, 1);
+}
 
 .services {
   width: 100%;
@@ -549,11 +628,11 @@ header .header-container .hamburger .hamburger-btn::after {
   opacity: 0.8;
   padding-top: 1.4em;
   text-align: center;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
 }
 .services .title-head span {
   opacity: 0.05;
-  color: #000000;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
 }
 .services h3 {
@@ -562,17 +641,17 @@ header .header-container .hamburger .hamburger-btn::after {
   font-weight: 500;
   opacity: 0.9;
   font-variant: small-caps;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
 }
 .services .color {
-  background-color: darkcyan;
+  background-color: rgb(0, 139, 139);
   height: 12vh;
   width: 100%;
   padding: 1em 2em;
   text-align: start;
 }
 .services .color h3 {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .services .services-container {
   display: flex;
@@ -583,16 +662,16 @@ header .header-container .hamburger .hamburger-btn::after {
   height: 100%;
   padding: 2.4em 0 1em 0;
   margin-top: 2em;
-  gap: 2em;
+  gap: 2.5em;
 }
 .services .services-container .service-tools {
-  width: 70%;
+  width: 50%;
   height: auto;
   padding: 1em 0;
   border: 1px solid rgb(204, 203, 203);
   border-radius: 10px;
   border-top-right-radius: 6.25em;
-  background-color: #008b8b;
+  background-color: rgb(0, 139, 139);
 }
 .services .services-container .service-tools .image {
   width: 40%;
@@ -605,7 +684,7 @@ header .header-container .hamburger .hamburger-btn::after {
 }
 .services .services-container .service-tools .service-text {
   text-align: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -614,7 +693,7 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-top: 0.6em;
 }
 .services .services-container .service-tools .service-text p {
-  padding: 0.3em 1em;
+  padding: 0.3em 0.5em;
   font-size: clamp(0.75rem, 1.5vw + 0.5rem, 1.1rem);
   font-weight: 300;
   opacity: 0.8;
@@ -622,6 +701,16 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-bottom: 0.6em;
 }
 
+@media (min-width: 62em) {
+  .services .services-container .service-tools {
+    width: 35%;
+  }
+}
+@media (min-width: 75em) {
+  .services .services-container .service-tools {
+    width: 20%;
+  }
+}
 .works {
   display: grid;
   place-items: center;
@@ -630,11 +719,12 @@ header .header-container .hamburger .hamburger-btn::after {
   margin-top: 5em;
 }
 .works .works-container {
-  text-align: center;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: auto;
   position: relative;
   padding-top: 1.4em;
+  padding-bottom: 1.4em;
 }
 .works .works-container .title-head {
   font-size: clamp(1rem, 2.5vw + 0.75rem, 5rem);
@@ -645,11 +735,11 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-top: 1.6em;
   text-align: center;
   padding: 2em 2em 0.4em;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
 }
 .works .works-container .title-head span {
   opacity: 0.05;
-  color: #000000;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
 }
 .works .works-container h3 {
@@ -658,51 +748,96 @@ header .header-container .hamburger .hamburger-btn::after {
   font-weight: 500;
   opacity: 0.9;
   font-variant: small-caps;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
+  text-align: center;
 }
 .works .works-container .menu-works {
-  background-color: darkcyan;
-  margin-top: 1em;
+  background-color: rgb(0, 139, 139);
+  text-align: center;
 }
 .works .works-container .menu-works .btn {
   display: inline-block;
-  width: 130px;
+  width: 120px;
   background-color: palevioletred;
   transition: 0.5s linear;
 }
 .works .works-container .menu-works .btn:hover {
-  background-color: darkcyan;
+  background-color: rgb(0, 139, 139);
 }
-.works .works-container .image-box {
+.works .works-container .web-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
-  gap: 0.6em;
-  background-color: aliceblue;
+  gap: 1em;
+  margin-top: 1em;
 }
-.works .works-container .image-box .image-content {
-  flex: 100%;
-  margin: auto;
+.works .works-container .web-box .web-content {
+  width: 100%;
   overflow: hidden;
   position: relative;
+  border: 1px solid aliceblue;
+  position: relative;
+  cursor: pointer;
 }
-.works .works-container .image-box .image-content:hover img {
-  transform: scale(1.09);
+.works .works-container .web-box .web-content:hover img {
+  transform: scale(1.025);
 }
-.works .works-container .image-box .image-content:hover .overlay {
-  transform: translate(0);
+.works .works-container .web-box .web-content img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -o-object-position: center;
+     object-position: center;
+  transition: transform 0.5s ease-out;
 }
-.works .works-container .image-box .image-content .overlay {
-  transition: transform 0.5s ease-in-out;
+.works .works-container .web-box .web-content .visit-site {
   position: absolute;
-  top: 50%;
-  background-color: #000000;
-  padding: 1em 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.75em 0.5em 0.75em 1.5em;
+  background-color: rgb(37, 243, 250);
+  color: rgb(0, 0, 0);
+  transform: translateX(-100%);
+  transition: all 300ms ease-in;
+  transform-origin: left;
+  font-size: 1.1rem;
+  border-top-right-radius: 100px;
 }
-.works .works-container .image-box .image-content img {
+.works .works-container .web-box .web-content .visit-site span {
+  font-size: 1.2rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.works .works-container .web-box .web-content .visit-site:hover {
+  color: #ada8a9;
+}
+.works .works-container .web-box .web-content:hover .visit-site {
+  transform: translateX(0);
+}
+.works .works-container .graphics-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 1em;
+  margin-top: 2em;
+}
+.works .works-container .graphics-box .graphics-content {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid aliceblue;
+}
+.works .works-container .graphics-box .graphics-content:hover img {
+  transform: scale(1.025);
+}
+.works .works-container .graphics-box .graphics-content img {
   width: 100%;
   height: 100%;
   -o-object-fit: fill;
@@ -712,6 +847,26 @@ header .header-container .hamburger .hamburger-btn::after {
   transition: transform 0.5s ease-out;
 }
 
+@media (min-width: 37.5em) {
+  .works .works-container .graphics-box .graphics-content {
+    width: 48%;
+  }
+}
+@media (min-width: 48em) {
+  .works .works-container .web-box .web-content {
+    width: 48%;
+  }
+}
+@media (min-width: 62em) {
+  .works .works-container .graphics-box .graphics-content {
+    width: 31%;
+  }
+}
+@media (min-width: 75em) {
+  .works .works-container .web-box .web-content {
+    width: 31%;
+  }
+}
 .contact {
   display: grid;
   place-items: center;
@@ -732,7 +887,7 @@ header .header-container .hamburger .hamburger-btn::after {
   flex-wrap: wrap;
 }
 .contact .contact-wrapper .contact-call-us {
-  background-color: var(--bgcolor);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   padding: 1em 0;
   position: relative;
@@ -747,11 +902,11 @@ header .header-container .hamburger .hamburger-btn::after {
   padding-top: 1.6em;
   text-align: center;
   padding: 2em 2em 0.4em;
-  color: darkcyan;
+  color: rgb(0, 139, 139);
 }
 .contact .contact-wrapper .contact-call-us .title-head span {
   opacity: 0.05;
-  color: #000000;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
 }
 .contact .contact-wrapper .contact-call-us .contact-info {
@@ -771,7 +926,7 @@ header .header-container .hamburger .hamburger-btn::after {
   filter: invert(0);
 }
 .contact .contact-wrapper .contact-call-us .contact-info p {
-  color: var(--darkcolor);
+  color: rgb(0, 0, 0);
 }
 .contact .contact-wrapper .contact-call-us .map {
   width: 100%;
@@ -788,7 +943,7 @@ header .header-container .hamburger .hamburger-btn::after {
 }
 .contact .contact-wrapper .contact-form {
   width: 100%;
-  background-color: var(--wrapper);
+  background-color: rgb(0, 139, 139);
   padding: 1.2em 0.4em;
 }
 .contact .contact-wrapper .contact-form h3 {
@@ -797,8 +952,8 @@ header .header-container .hamburger .hamburger-btn::after {
   font-weight: 500;
   opacity: 0.9;
   font-variant: small-caps;
-  color: darkcyan;
-  color: var(--textcolor);
+  color: rgb(0, 139, 139);
+  color: rgb(255, 255, 255);
   margin-bottom: 2em;
   padding-left: 0.8em;
 }
@@ -815,10 +970,10 @@ header .header-container .hamburger .hamburger-btn::after {
   border: none;
   outline: none;
   height: 2em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(0, 0, 0);
   background-color: transparent;
   padding-left: 1em;
-  color: var(--textcolor);
+  color: rgb(255, 255, 255);
   resize: none;
 }
 .contact .contact-wrapper .contact-form form .form-info input:focus ~ label, .contact .contact-wrapper .contact-form form .form-info input:valid ~ label, .contact .contact-wrapper .contact-form form .form-info textarea:focus ~ label, .contact .contact-wrapper .contact-form form .form-info textarea:valid ~ label {
@@ -838,20 +993,20 @@ header .header-container .hamburger .hamburger-btn::after {
   width: 100%;
   cursor: text;
   transition: 0.5s;
-  color: var(--textcolor);
+  color: rgb(255, 255, 255);
   font-size: 0.9rem;
   opacity: 0.6;
   padding-left: 1em;
 }
 .contact .contact-wrapper .contact-form form .form-info label i {
-  color: var(--bgcolor);
+  color: rgb(255, 255, 255);
 }
 .contact .contact-wrapper .contact-form form button[type=submit] {
-  color: var(--darkcolor);
+  color: rgb(0, 0, 0);
   padding: 0.6em 1em;
   display: inline-block;
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   outline: none;
   margin: 0 1em 1em;
   font-size: 0.9rem;
@@ -863,13 +1018,51 @@ header .header-container .hamburger .hamburger-btn::after {
   border: 1px solid aliceblue;
 }
 
+@media (min-width: 37.5em) {
+  .contact .contact-wrapper {
+    width: 80%;
+  }
+}
+@media (min-width: 48em) {
+  .contact .contact-wrapper {
+    width: 80%;
+    margin: auto;
+  }
+}
+@media (min-width: 62em) {
+  .contact .contact-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .contact .contact-wrapper .contact-call-us {
+    flex-basis: 50%;
+    transform: translateX(40%);
+    position: relative;
+    z-index: 1;
+  }
+  .contact .contact-wrapper .contact-call-us .contact-info {
+    gap: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .contact .contact-wrapper .contact-form {
+    padding-top: 3em;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    height: 90vh;
+  }
+  .contact .contact-wrapper .contact-form form {
+    width: 40%;
+    margin-top: 5em;
+  }
+}
 .footer {
   display: grid;
   place-items: center;
-  position: relative;
   width: 100%;
   height: 20vh;
-  background-color: var(--darkcolor);
+  background-color: rgb(0, 0, 0);
   padding: 1em 0 2em;
 }
 .footer .copyright-footer {
@@ -879,17 +1072,20 @@ header .header-container .hamburger .hamburger-btn::after {
   margin: auto;
 }
 .footer .copyright-footer p {
-  color: var(--textcolor);
-  padding: 0.3em 1em;
+  color: rgb(255, 255, 255);
+  padding: 0.3em 0.5em;
   font-size: clamp(0.75rem, 1.5vw + 0.5rem, 1.1rem);
   font-weight: 300;
   opacity: 0.8;
   line-height: 1.3;
   text-align: center;
+  max-width: 380px;
+  margin: auto;
 }
 .footer .icons {
   display: flex;
   gap: 1em;
+  margin-top: 1em;
 }
 .footer .icons .fa {
   cursor: pointer;
@@ -897,7 +1093,7 @@ header .header-container .hamburger .hamburger-btn::after {
   filter: invert(1);
 }
 .footer .icons .fa:hover {
-  color: var(--wrapper);
+  color: rgb(0, 139, 139);
 }
 
 body {

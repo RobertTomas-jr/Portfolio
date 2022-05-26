@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">logout
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d5947fa59a.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/d5947fa59a.js" crossorigin="anonymous"></script>
+    
     <script src="/js/script.js" defer></script>
     <title>Portfolio</title>
 </head>
@@ -17,8 +17,8 @@
     <!-- start header section -->
     <header>
         <div class="header-container">
-            <div class="logo"><img src="./images/RT-logo.gif" alt=""></div>  
-           
+            <a class="logo"><img src="./images/RT-logo.gif" alt=""></a>  
+            
             <nav class="nav-menu">
                 <a href="#banner" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
@@ -26,11 +26,11 @@
                 <a href="#works" class="nav-link">Portfolio</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
-                         
+                            
             <div class="hamburger">
                 <span class="hamburger-btn"></span>
             </div>
-        </div>  
+        </div>
     </header>
     <!-- end header section -->
     <!-- start main body -->
@@ -97,6 +97,10 @@
                                 <div class="progress-bar">
                                     <div class="sass bar-percentage">50%</div>
                                 </div>
+                                <h3>git/github</h3>
+                                <div class="progress-bar">
+                                    <div class="git-github bar-percentage">50%</div>
+                                </div>
                             </div>
                         </div>
                         <div class="skillset">
@@ -122,10 +126,7 @@
                                 
                         </div>
                     </div>
-                    
-                   
                 </div>
-
             <!-- </section> -->
         </section>
         <!-- end about section -->
@@ -182,36 +183,49 @@
                 <h3>Create a website that works. </h3>
                 <div class="menu-works">
                    <a href="" class="btn" data-filter="all">All</a>
-                   <a href="" class="btn" data-filter="web">Web Design</a>
-                   <a href="" class="btn" data-filter="graphic">Graphic Design</a>
+                   <a href="" class="btn" data-filter="web">Web</a>
+                   <a href="" class="btn" data-filter="graphic">Graphics</a>
                 </div>
-                <div class="image-box" id="image-container">
-                    <div class="image-content web" >
-                        <img src="./images/work-updated-personal-portfolio.gif" alt="">
+                <div class="web-box" id="image-container">
+                    <div class="portfolio web-content web" >
+                        <img src="./images/Frontend Mentor Insure landing page.png" alt="">
+                        <a href="https://insure-landingpage-stomas.netlify.app/#" class="visit-site" target="_blank">Visit site <span>&#62;</span></a>
                     </div>
-                    <div class="image-content web" >
-                        <img src="./images/work-1st-website.gif" alt="">
+                    <div class="portfolio web-content web" >
+                        <img src="./images/frontend mentor base-apparel.png" alt="">
+                        <a href="https://fem-base-apparel.netlify.app/" class="visit-site" target="_blank">Visit site <span>&#62;</span></a>
                     </div>
-                    <div class="image-content web" >
-                        <img src="./images/work-kamagong-website.gif" alt="">
-                        <div class="overlay"><a href="https://kamagongmountain.netlify.app/" target="_blank">Kamagong Mountain</a></div>
+                    <div class="portfolio web-content web" >
+                        <img src="./images/Portfolio.png" alt="">
+                        <a href="" class="visit-site">Visit site <span>&#62;</span></a>
                     </div>
-                    <div class="image-content  graphic" >
+                    <div class="portfolio web-content web" >
+                        <img src="./images/My Portfolio First Website.png" alt=""><a href="https://silvestretomas-site.netlify.app/" class="visit-site" target="_blank">Visit site <span>&#62;</span></a>
+                    </div>
+                    <div class="portfolio web-content web" >
+                        <img src="./images/Kamagong Mountain.png" alt=""><a href="https://kamagongmountain.netlify.app/" class="visit-site" target="_blank">Visit site <span>&#62;</span></a>
+                    </div>
+                    <div class="portfolio web-content web" >
+                        <img src="./images/Frontend Mentor Order summary card.png" alt=""><a href="" class="visit-site">Visit site <span>&#62;</span></a>
+                    </div>
+                </div>
+                <div class="graphics-box" id="image-container">
+                    <div class="portfolio graphics-content  graphic" >
                         <img src="./images/logo3.png" alt="">
                     </div>
-                    <div class="image-content graphic" >
+                    <div class="portfolio graphics-content graphic" >
                         <img src="./images/kamagong-logo.png" alt="">
                     </div>
-                    <div class="image-content graphic" >
-                        <img src="./images/work-logo2.png" alt="">
+                    <div class="portfolio graphics-content graphic" >
+                        <img src="./images/RT-logo.png" alt="">
                     </div>
-                    <div class="image-content graphic" >
+                    <div class="portfolio graphics-content graphic" >
                         <img src="./images/callingcard1-(2).gif" alt="">
                     </div>
-                    <div class="image-content graphic" >
+                    <div class="portfolio graphics-content graphic" >
                         <img src="./images/RT-logo1.png" alt="">
                     </div>
-                    <div class="image-content graphic" >
+                    <div class="portfolio graphics-content graphic" >
                         <img src="./images/work-ID-FRONT-Chairman.png" alt="">
                     </div>
                 </div>
@@ -239,13 +253,13 @@
                     </div>
                     <div class="map">
                             <div class="map-container">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7222.701256711883!2d51.523058!3d25.157636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc1c2e43bfc58472b!2sEzdan%20Oasis%205%20East%20Mosque!5e0!3m2!1sen!2sqa!4v1650966105714!5m2!1sen!2sqa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7222.701256711883!2d51.523058!3d25.157636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc1c2e43bfc58472b!2sEzdan%20Oasis%205%20East%20Mosque!5e0!3m2!1sen!2sqa!4v1650966105714!5m2!1sen!2sqa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
                             </div>
                     </div>
                 </div>
-
                 <div class="contact-form">
-                    <h3>Leave us a message</h3>
+                    <h3>Leave a message</h3>
                     <form action="#">
                         <div class="form-info"> 
                             <input type="text" id="fullname" name="fullname" required>
@@ -259,7 +273,6 @@
                             <textarea name="messages" id="messages" rows="10" required></textarea>
                             <label for="messages"><i class="fas fa-comment"></i> Messages</label>
                         </div>
-                        
                         <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
                         
                     </form>

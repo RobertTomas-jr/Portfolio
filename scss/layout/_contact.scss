@@ -1,8 +1,6 @@
 @use '../util/' as *;
 @use '../globals/' as *;
 
-
-
 .contact {
     @include gridplacenter;
     @include widthheight;
@@ -19,7 +17,7 @@
         flex-wrap: wrap;
 
         .contact-call-us {
-            background-color: var(--bgcolor);
+            background-color: $bgcolor;
             width: 100%;
             padding: 1em 0;
             position: relative;
@@ -30,14 +28,13 @@
                 padding-top: 1.6em;
                 text-align: center;
                 padding: 2em 2em 0.4em;
-                color: darkcyan;
+                color: $wrapper;
 
                 span {
                     opacity: 0.05;
-                    color: #000000;
+                    color: $darkcolor;
                     font-size: 3rem;
                 }
-    
             } 
             .contact-info {
                 width: 100%;
@@ -56,7 +53,7 @@
                      }
                 }
                 p {
-                    color: var(--darkcolor);
+                    color: $darkcolor;
                 }
             }
             .map {
@@ -77,12 +74,12 @@
         }
         .contact-form {
             width: 100%;
-            background-color: var(--wrapper);
+            background-color: $wrapper;
             padding: 1.2em 0.4em;
            
             h3 {
                 @include subHead;
-                color: var(--textcolor);
+                color: $textcolor;
                 margin-bottom: 2em;
                 padding-left: 0.8em;
             }
@@ -99,10 +96,10 @@
                         border: none;
                         outline: none;
                         height: 2em;
-                        border-bottom: 1px solid black;
+                        border-bottom: 1px solid $darkcolor;
                         background-color: transparent;
                         padding-left: 1em;
-                        color: var(--textcolor);
+                        color: $textcolor;
                          resize: none;
 
                         &:focus~label, &:valid~label {
@@ -116,7 +113,6 @@
                     textarea {
                         height: 100px;
                     } 
-
                     label {
                         position: absolute;
                         top: 0;
@@ -125,22 +121,22 @@
                         width: 100%;
                         cursor: text;
                         transition: 0.5s;
-                        color: var(--textcolor);
+                        color: $textcolor;
                         font-size: 0.9rem;
                         opacity: 0.6;
                         padding-left: 1em;
 
                         i {
-                            color: var(--bgcolor);
+                            color: $bgcolor;
                         } 
                     }
                 }
                 button[type="submit"]{
-                    color: var(--darkcolor);
+                    color: $darkcolor;
                     padding: 0.6em 1em;
                     display: inline-block;
                     background: transparent;
-                    border: 1px solid black;
+                    border: 1px solid $darkcolor;
                     outline: none;
                     margin: 0 1em 1em;
                     font-size: 0.9rem;
@@ -148,9 +144,56 @@
                     transition: 0.5s linear;
                   
                     &:hover {
-                        background-color: aliceblue;
-                        border: 1px solid aliceblue;
+                        background-color: $hovercolorTwo;
+                        border: 1px solid $hovercolorTwo;
                     }
+                }
+            }
+        }
+    }
+}
+@include breakpoints(small) {
+    .contact {
+        .contact-wrapper {
+            width: 80%;
+        }
+    }
+}
+@include breakpoints(medium){
+    .contact {
+        .contact-wrapper {
+            width: 80%;
+            margin: auto;
+        }
+    }
+}
+@include breakpoints(large) {
+    .contact {
+        
+        .contact-wrapper {
+            position: relative;
+            width: 100%;
+            .contact-call-us {
+                flex-basis: 50%;
+                transform: translateX(40%);
+                position: relative;
+                z-index: 1;
+
+                .contact-info{
+                    gap: 0;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+            .contact-form {
+                padding-top: 3em;
+                width: 100%;
+                position: absolute;
+                z-index: 0;
+                height: 90vh;
+                form {
+                    width: 40%;
+                    margin-top: 5em;
                 }
             }
         }

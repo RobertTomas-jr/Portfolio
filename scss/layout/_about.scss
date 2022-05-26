@@ -1,16 +1,16 @@
 @use '../util/' as *;
 @use '../globals/' as *;
 
-
 .about {
     width: 100%;
     height: 100%;
     padding-top: 12vh;
     padding-bottom: 2em;
     @include gridplacenter;
-    //background-color: #231F20;
-    background-image: linear-gradient(150deg, rgba(0,0,0,0), rgba(0,0,0,1)), url('/images/backgroun-image.jpg');
-   // opacity: 0.3;
+    background-image: url('/images/backgroun-image.jpg');
+    background-image:  linear-gradient(150deg, rgba(7, 7, 7, 0.3), rgba(7, 7, 7, 0.6)), url('/images/backgroun-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
    
    .about-me {
         width: 100%;
@@ -18,43 +18,35 @@
         padding: 2em 1em 4em 1em;
         @include flexcenter;
         flex-wrap: wrap;
-        //background-color: #231F20;
         gap: 2em;
         overflow: hidden;
        
-       
         .about-me-content {
             text-align: center;
-            color: white;
+            color: $textcolor;
             width: 25em;
 
             .title-head {
-                // @extend %titleHead;
                 @include titleHead;
-               // text-align: start;
+
                span {
-                   color: darkcyan;
+                   color: $wrapper;
                }
             }   
             .sub-head {
-                //@extend %subHead;
                 @include subHead;
                 padding-bottom: 1em;
-                //padding-top: 0.6em;
-                
             }
             .content {
                 @include textContent;
-               
             } 
 
             .style-box {
-                border: 10px solid white;
+                border: 10px solid $textcolor;
                 width: 300px;
                 height: auto;
                 border-radius: 25px;
                 margin: auto;
-                
                 
                 img {
                     width: 100%;
@@ -64,45 +56,34 @@
                     position: relative;
                     left: 2em;
                     top: 2em;
-                    //border: 1px solid darkcyan;
                     border-radius: 10px;
-                    //transform: rotateY(180deg);
-               }   }
+                }       
+            }   
         }
    }
    .about-skills {
     width: 100%;
     height: 100%;
-    // @include flexspacebetween;
-    // flex-direction: column;
-    color: white;
+    color: $textcolor;
     padding-bottom: 5em;
-   // background-color: #231F20;
-    
     
     .title-head {
-        //@extend %titleHead;
         @include titleHead;
         padding-top: 1em;
         text-align: center;
     }
     
     .skills {
-        @include flexcenter;
+        display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 2em;
-       
 
         .skillset {
             width: 400px;
-           // height: 100%;
             position: relative;
-            
-           
-            //background-color: aqua;
     
             .sub-head {
-               // @extend %subHead;
                 @include subHead;
                 text-align: center;
                 padding-top: 1.4em;
@@ -111,12 +92,11 @@
                 &::before,&::after {
                     position: absolute;
                     content: "";
-                   
                 }
                 &::before {
                     width: 100px;
                     height: 3px;
-                    background-color: wheat;
+                    background-color: $sampleworkscolor;
                     left: 50%;
                     top: 20%;
                     transform:  translate(-50%, -50%);
@@ -124,7 +104,7 @@
                 &::after {
                     width: 60px;
                     height: 3px;
-                    background-color: wheat;
+                    background-color: $sampleworkscolor;
                     left: 50%;
                     top: 22%;
                     transform:  translate(-50%, -50%);
@@ -138,11 +118,11 @@
                 font-variant: small-caps;
             }
             .progress-bar {
-                background-color: #ada8a9;
+                background-color: $progresscolor;
                 height: 16px;
                 border-radius: 10px;
                 overflow: hidden;
-                border: 1px solid darkcyan;
+                border: 1px solid $wrapper;
     
                 .bar-percentage {
                     font-size: 0.7rem;
@@ -151,9 +131,9 @@
                     text-align: end;
                 }
             }
-            .html, .css, .javascript, .sass,
+            .html, .css, .javascript, .sass, .git-github,
             .photoshop, .illustrator, .canva, .figma {
-                background-color: #080808;
+                background-color: $skillcolor;
                 height: 15px;
                 border-radius: 10px;
                 transform-origin: left;
@@ -187,10 +167,12 @@
                         width: 50%;
                         animation: sass 1s cubic-bezier(1, 0.5, 0.8, 1);
                     } 
+                    .git-github {
+                        width: 50%;
+                        animation: git 1s cubic-bezier(1, 0.5, 0.8, 1);
+                    } 
+                }
             }
         }
-    }
-    
-
     }      
 }
