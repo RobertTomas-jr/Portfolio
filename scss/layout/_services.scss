@@ -3,76 +3,93 @@
 
 .services {
     @include widthheight;
-    @include gridplacenter;
     padding-bottom: 2em;
     position: relative;
-    
-    .title-head {
-        @include titleHead;
-        padding-top: 1.4em;
-        text-align: center;
-        color: $wrapper;
 
-        span {
-            opacity: 0.05;
-            color: $darkcolor;
-            font-size: 3rem;
-        }
-    }
-    h3 {
-        @include subHead;
-    }
     .color {
         background-color: $wrapper;
-        height: 12vh;
         width: 100%;
-        padding: 1em 2em;
+        padding: 0.4em 2em;
         text-align: start;
 
         h3 {
             color: $textcolor;
+            font-variant: small-caps;
+            font-weight: map-get($fontWeight, "medium");
         }
     }
-    .services-container {
-        @include flexcenter;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-        padding: 2.4em 0 1em 0;
-        margin-top: 2em;
-        gap: 2.5em;
+    .services-wrapper {
+        width: min(1100px, 100%);
+        margin: auto;
 
-        .service-tools {
-            width: 50%;
-            height: auto;
-            padding: 1em 0;
-            border: 1px solid rgb(204, 203, 203);
-            border-radius: 10px;
-            border-top-right-radius: 6.25em;
-            background-color: $wrapper;
-
-            .image {
-               width: 40%;
-               margin: auto;
-               
-                img {
-                    @include widthheight;
-                    filter: invert(1);
+        .title-head {
+            @include titleHead;
+            padding-top: 1.4em;
+            text-align: center;
+            color: $wrapper;
+    
+            span {
+                opacity: 0.05;
+                color: $darkcolor;
+                font-size: 3rem;
+            }
+        }
+        h3 {
+            @include subHead;
+            text-align: center;
+        }
+        .services-container {
+            @include flexcenter;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+            padding: 2.4em 0 1em 0;
+            margin-top: 2em;
+            gap: 2.5em;
+    
+            .service-tools {
+                width: 50%;
+                height: auto;
+                padding: 1em 0;
+                border: 1px solid rgb(204, 203, 203);
+                border-radius: 10px;
+                border-top-right-radius: 6.25em;
+                background-color: $wrapper;
+    
+                .image {
+                   width: 40%;
+                   margin: auto;
+                   
+                    img {
+                        @include widthheight;
+                        filter: invert(1);
+                    }
+                }
+                .service-text {
+                    text-align: center;
+                    background-color: $textcolor;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    
+                    h3{
+                        margin: 0.4em auto;
+                        padding-top: 0.6em;
+                    }
+                    p {
+                       @include textContent;
+                       padding-bottom: 0.6em;
+                    }
                 }
             }
-            .service-text {
-                text-align: center;
-                background-color: $textcolor;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-                
-                h3{
-                    margin: 0.4em auto;
-                    padding-top: 0.6em;
-                }
-                p {
-                   @include textContent;
-                   padding-bottom: 0.6em;
+        }
+    }
+}
+@include breakpoints(medium) {
+    .services {
+        .services-wrapper {
+            .services-container {
+                .service-tools {
+                    width: 35%;
                 }
             }
         }
@@ -80,18 +97,18 @@
 }
 @include breakpoints(large) {
     .services {
-        .services-container {
-            .service-tools {
-                width: 35%;
-            }
+        .color {
+            text-align: center;
         }
     }
 }
 @include breakpoints(xlarge) {
     .services {
-        .services-container {
-            .service-tools {
-                width: 20%;
+        .services-wrapper {
+            .services-container {
+                .service-tools {
+                    width: 20%;
+                }
             }
         }
     }

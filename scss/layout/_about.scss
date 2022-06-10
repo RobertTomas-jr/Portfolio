@@ -2,146 +2,163 @@
 @use '../globals/' as *;
 
 .about {
-    width: 100%;
-    height: 100%;
-    padding-top: 12vh;
-    padding-bottom: 2em;
+    @include widthheight;
     @include gridplacenter;
-    background-image: url('/images/backgroun-image.jpg');
-    background-image:  linear-gradient(150deg, rgba(7, 7, 7, 0.3), rgba(7, 7, 7, 0.6)), url('/images/backgroun-image.jpg');
+    background-image:  linear-gradient(150deg, rgba(7, 7, 7, 0.7), rgba(7, 7, 7, 1)), url('/images/backgroun-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
    
-   .about-me {
+    .about-wrapper {
+        width: min(1100px, 100%);
+        padding-top: 12vh;
+        padding-bottom: 2em;
+        margin: auto;
+
+        .about-me {
+            width: 100%;
+            height: 100%;
+            @include flexcenter;
+            flex-direction: column;
+            gap: 1em;
+           
+            .about-me-content {
+                text-align: center;
+                color: $textcolor;
+                margin: auto;
+                flex: 1;
+    
+                .title-head {
+                    @include titleHead;
+    
+                   span {
+                       color: $wrapper;
+                   }
+                }   
+                .sub-head {
+                    @include subHead;
+                    padding-bottom: 1em;
+                }
+                .content {
+                    @include textContent;
+                    width: 21.875em;
+                    margin: auto;
+                    margin-top: 1em;
+                } 
+            }
+            .about-me-image {
+                flex: 1;
+
+                .style-box {
+                    border: 10px solid $textcolor;
+                    width: 100%;
+                    height: 15em;
+                    border-radius: 25px;
+                    margin: auto;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: right center;
+                        position: relative;
+                        left: 1.5em;
+                        top: 1.5em;
+                        border-radius: 10px;
+                    }       
+                }   
+            }
+       }
+       .about-skills {
         width: 100%;
         height: 100%;
-        padding: 2em 1em 4em 1em;
-        @include flexcenter;
-        flex-wrap: wrap;
-        gap: 2em;
-        overflow: hidden;
-       
-        .about-me-content {
+        color: $textcolor;
+        margin-top: 7em;
+        
+        .title-head {
+            @include titleHead;
             text-align: center;
-            color: $textcolor;
-            width: 25em;
-
-            .title-head {
-                @include titleHead;
-
-               span {
-                   color: $wrapper;
-               }
-            }   
-            .sub-head {
-                @include subHead;
-                padding-bottom: 1em;
-            }
-            .content {
-                @include textContent;
-            } 
-
-            .style-box {
-                border: 10px solid $textcolor;
-                width: 300px;
-                height: auto;
-                border-radius: 25px;
-                margin: auto;
-                
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: right center;
-                    position: relative;
-                    left: 2em;
-                    top: 2em;
-                    border-radius: 10px;
-                }       
-            }   
         }
-   }
-   .about-skills {
-    width: 100%;
-    height: 100%;
-    color: $textcolor;
-    padding-bottom: 5em;
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5em;
+            width: 100%;
     
-    .title-head {
-        @include titleHead;
-        padding-top: 1em;
-        text-align: center;
-    }
-    
-    .skills {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2em;
-
-        .skillset {
-            width: 400px;
-            position: relative;
-    
-            .sub-head {
-                @include subHead;
-                text-align: center;
-                padding-top: 1.4em;
-                padding-bottom: 0.4em;
-    
-                &::before,&::after {
-                    position: absolute;
-                    content: "";
+            .skillset {
+                width: min(350px, 80%);
+                //width: 80%;
+                //width: 21.875em;
+                position: relative;
+                //margin: auto;
+                //margin-top: 1.4em;
+        
+                .sub-head {
+                    @include subHead;
+                    text-align: center;
+                    //padding-top: 1.4em;
+                    //margin-top: 1.4em;
+                    //padding-bottom: 0.4em;
+        
+                    &::before,&::after {
+                        position: absolute;
+                        content: "";
+                       
+                    }
+                    &::before {
+                        width: 100px;
+                        height: 3px;
+                        background-color: $sampleworkscolor;
+                        left: 50%;
+                        top: 60px;
+                        transform:  translateX(-50%);
+                    }
+                    &::after {
+                        width: 60px;
+                        height: 3px;
+                        background-color: $sampleworkscolor;
+                        left: 50%;
+                        top: 65px;
+                        transform:  translateX(-50%);
+                    }
                 }
-                &::before {
-                    width: 100px;
-                    height: 3px;
-                    background-color: $sampleworkscolor;
-                    left: 50%;
-                    top: 20%;
-                    transform:  translate(-50%, -50%);
-                }
-                &::after {
-                    width: 60px;
-                    height: 3px;
-                    background-color: $sampleworkscolor;
-                    left: 50%;
-                    top: 22%;
-                    transform:  translate(-50%, -50%);
-                }
-            }
-            h3 {
-                font-size: clamp(0.75rem, 1.5vw + 0.7rem, 1.3rem);
-                padding-top: 0.2em;
-                padding-bottom: 0.1em;
-                font-weight: 400;
-                font-variant: small-caps;
-            }
-            .progress-bar {
-                background-color: $progresscolor;
-                height: 16px;
-                border-radius: 10px;
-                overflow: hidden;
-                border: 1px solid $wrapper;
+                
+                
+                //designing skills, coding skills
+                .skill-tools {
+                    width: 100%;
+                    padding: 1em 1em;
     
-                .bar-percentage {
-                    font-size: 0.7rem;
-                    padding-left: 0.4em;
-                    padding-right: 0.4em;
-                    text-align: end;
-                }
-            }
-            .html, .css, .javascript, .sass, .git-github,
-            .photoshop, .illustrator, .canva, .figma {
-                background-color: $skillcolor;
-                height: 15px;
-                border-radius: 10px;
-                transform-origin: left;
-            }
-            //designing skills, coding skills
-            .skill-tools {
-                width: 100%;
-                padding: 0.8em 1em;
+                    h3 {
+                        font-size: clamp(0.75rem, 1.5vw + 0.7rem, 1.3rem);
+                        padding-top: 1em;
+                       // padding-bottom: 0;
+                        font-weight: 400;
+                        font-variant: small-caps;
+                    }
+    
+    
+                    .progress-bar {
+                        background-color: $progresscolor;
+                        height: 16px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        border: 1px solid $wrapper;
+                       
+                        .bar-percentage {
+                            font-size: 0.7rem;
+                            padding-left: 0.4em;
+                            padding-right: 0.4em;
+                            text-align: end;
+                        }
+                    }
+                    .html, .css, .javascript, .sass, .git-github,
+                    .photoshop, .illustrator, .canva, .figma {
+                        background-color: $skillcolor;
+                        height: 15px;
+                        border-radius: 10px;
+                        transform-origin: left;
+                    }
     
                     .photoshop, .illustrator {
                         width: 40%;
@@ -171,8 +188,60 @@
                         width: 50%;
                         animation: git 1s cubic-bezier(1, 0.5, 0.8, 1);
                     } 
+                    }
                 }
             }
+        }      
+    }
+}
+@include breakpoints(medium) {
+    .about {
+        .about-wrapper {
+            .about-me {
+                .about-me-content {
+                    .content {
+                        width: 25em;
+                        margin: auto;
+                        margin-top: 1em;
+                    } 
+                }
+                .about-me-image {
+                    .style-box {
+                        width: 25em;
+                        height: 25em;
+                        margin: auto;
+                    }   
+                }
+           }
         }
-    }      
+    }
+}
+@include breakpoints(large) {
+    .about {
+        .about-wrapper {
+            .about-me {
+                flex-direction: row;
+                .about-me-content {
+                   text-align: center;
+                   padding-top: 2em;
+                    .title-head {
+                       width: min(400px, 100%);
+                       margin: auto;
+                    }   
+                    .content {
+                        width: 21.875em;
+                        margin: auto;
+                        margin-top: 1em;
+                    } 
+                }
+                .about-me-image {
+                    .style-box {
+                        width: 25em;
+                        height: 25em;
+                        margin: auto;
+                    }   
+                }
+           }
+        }
+    }
 }

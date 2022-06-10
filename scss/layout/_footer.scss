@@ -2,36 +2,45 @@
 @use '../globals/' as *;
 
 .footer {
-    @include gridplacenter;
     width: 100%;
-    height: 20vh;
+    height: 15vh;
     background-color: $darkcolor;
-    padding: 1em 0 2em;
 
-    .copyright-footer {
-        @include widthheight;
-        width: 90%;
+    .footer-wrapper {
+        width: min(1100px, 100%);
         margin: auto;
 
-        p {
-            color: $textcolor;
-            @include textContent;
-            text-align: center;
-            max-width: 380px;
-            margin: auto;
+        .copyright-footer {
+            @include widthheight;
+    
+            p {
+                color: $textcolor;
+                @include textContent;
+                text-align: center;
+                width: min(350px, 80%);
+                margin: auto;
+            }
+        }
+        .icons {
+            display: flex;
+            gap: 1em;
+            margin-top: 1.5em;
+            justify-content: center;
+            
+            .fa {
+                @include icons-fa;
+                filter: invert(1);
+            }
         }
     }
-    .icons {
-        display: flex;
-        gap: 1em;
-        margin-top: 1em;
-        
-        .fa {
-            cursor: pointer;
-            font-size: 1.4rem;
-            filter: invert(1);
-            &:hover {
-                color: $wrapper;
+}
+@include breakpoints(large) {
+    .footer {
+        .footer-wrapper {
+            .copyright-footer {
+                p {
+                   width: 100%;
+                }
             }
         }
     }
